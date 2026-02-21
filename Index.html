@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>Happy Birthday Anas bhaiii🎉</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+font-family: 'Poppins', sans-serif;
+background: #0f172a;
+min-height: 100vh;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+overflow-x: hidden;
+color: #f8fafc;
+padding: 20px 0;
+}
+
+/* Floating background shapes */
+.shape {
+position: absolute;
+background: linear-gradient(45deg, #38bdf8, #818cf8);
+border-radius: 50%;
+filter: blur(40px);
+opacity: 0.15;
+z-index: 1;
+animation: float 10s infinite alternate;
+}
+.shape.one { width: 250px; height: 250px; top: 5%; left: -100px; }
+.shape.two { width: 200px; height: 200px; bottom: 5%; right: -80px; background: #c084fc; }
+
+@keyframes float { from { transform: translate(0, 0); } to { transform: translate(30px, 50px); } }
+
+/* Main card */
+.glass-card {
+width: 90%;
+max-width: 420px;
+padding: 30px 20px;
+background: rgba(255, 255, 255, 0.05);
+backdrop-filter: blur(15px);
+border: 1px solid rgba(255, 255, 255, 0.1);
+border-radius: 28px;
+text-align: center;
+box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+z-index: 10;
+}
+
+/* Photo Gallery Styles */
+.photo-container {
+display: flex;
+gap: 10px;
+justify-content: center;
+margin-bottom: 20px;
+}
+.birthday-photo {
+width: 100px;
+height: 100px;
+border-radius: 15px;
+object-fit: cover;
+border: 2px solid rgba(56, 189, 248, 0.5);
+transition: transform 0.3s ease;
+}
+.birthday-photo:hover { transform: scale(1.1); }
+
+h1 {
+font-size: 1.7rem;
+margin-bottom: 15px;
+background: linear-gradient(to right, #38bdf8, #818cf8, #c084fc);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+.message { font-size: 0.95rem; line-height: 1.6; color: #cbd5e1; min-height: 80px; margin-bottom: 15px; }
+
+.cta-button {
+padding: 12px 28px;
+border: none;
+border-radius: 14px;
+background: linear-gradient(135deg, #38bdf8, #818cf8);
+color: #0f172a;
+font-weight: 600;
+cursor: pointer;
+transition: 0.3s;
+width: 100%;
+}
+
+.signature { margin-top: 20px; font-size: 0.8rem; color: #94a3b8; letter-spacing: 1px; }
+</style>
+</head>
+<body>
+
+<div class="shape one"></div>
+<div class="shape two"></div>
+
+<div class="glass-card">
+<div class="photo-container">
+<img src="photo1.jpg" alt="Memory 1" class="birthday-photo">
+<img src="photo2.jpg" alt="Memory 2" class="birthday-photo">
+<img src="photo3.jpg" alt="Memory 3" class="birthday-photo">
+</div>
+
+<h1>Happy Birthday, Anas Bhaii! 🎂</h1>
+<div class="message" id="typed-msg"></div>
+<button class="cta-button" onclick="sparkle()">Tap for a Surprise</button>
+<p class="signature">— Kaleem Arif</p>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<script>
+const text = "Wishing you a fantastic birthday! 🎉 May our bond become more stronger and stronger everyday,Your younger brother samm";
+let index = 0;
+function typeWriter() {
+if (index < text.length) {
+document.getElementById("typed-msg").innerHTML += text.charAt(index);
+index++;
+setTimeout(typeWriter, 40);
+}
+}
+function sparkle() {
+confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 }, colors: ["#38bdf8", "#818cf8", "#c084fc"] });
+document.querySelector(".cta-button").innerText = "Enjoy your day! 🥳";
+}
+window.onload = typeWriter;
+</script>
+</body>
+</html>
